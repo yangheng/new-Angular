@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/public/style/bootstrap.min.css" />
+    <style type="text/css">
+        .alert{
+            display: none;
+        }
+    </style>
+</head>
+<% var s=''; if(data.cardType==1){s='出行'}
+if(data.cardType==2){s='阅读'}
+if(data.cardType==3){s='读诗'}
+if(data.cardType==4){s='Kindle'}
+if(data.cardType==5){s='手机党'}
+if(data.cardType==6){s='你懂得'}
+if(data.cardType==7){s='逆天账号'}
+%>
+<body>
+   <div class="container">
+       <div class="row bg-success well">
+           <div class="col-xs-4 text-center">
+               <a href="/admin" class="btn-success btn-lg text-center col-xs-6 ">首页</a>
+           </div>
+           <div class="col-xs-4 text-center">
+               <a href="/admin/add" class="btn-success btn-lg text-center col-xs-6">新增</a>
+           </div>
+           <div class="col-xs-4 text-center">
+               <a href="/admin/check" class="btn-success btn-lg text-center col-xs-6">审批 <span class="badge pull-right"><%= total%></span></a>
+           </div>
+
+       </div>
+       <div class="row">
+           <div class="col-xs-8">
+               <div class="panel panel-default">
+                   <div class="panel-heading">
+                       <h3 class="panel-title">
+                           公众号详细资料
+                       </h3>
+
+                   </div>
+                   <div class="panel-body">
+                       <form name="addform" action="/admin/<%= path%>" method="post" class="demoform" role="form" >
+                           <div class="form-group">
+                               <label>公众号名字</label>
+                               <input class="form-control" name="cardName" value="<%= data.cardName?data.cardName:''%>" placeholder="公众号名字" datatype="s" nullmsg="请输入公众号名字" >
+                           </div>
+                           <div class="form-group">
+                               <label>公众号</label>
+                               <input class="form-control" name="cardId" value="<%= data.cardId?data.cardId:'' %>" placeholder="公众号" datatype="n" nullmsg="请输入公众号">
+                               <input type="hidden" name="_id" value="<%= data._id?data._id:''%>">
+                               <input type="text" name="typename" value="<%= s%>
+                               ">
+                           </div>
+                           <div class="form-group">
+                               <label>公众号描述</label>
+                               <textarea name="cardDes" placeholder="公众号描述" rows="3" class="form-control" datatype="s"  nullmsg="请输入公众号描述">
+                                   <%= data.cardDes?data.cardDes:''%>
+                               </textarea>
+                           </div>
+                           <div class="form-group">
+                               <label>所属分类</label>
+                               <select class="form-control" name="cardType">
+                                   <option value="1" <% if(data.cardType==1){%>selected<%}%> >出行</option>
+                                   <option value="2" <% if(data.cardType==2){%>selected <%}%> >阅读</option>
+                                   <option value="3" <% if(data.cardType==3){%>selected <%}%> >读诗</option>
+                                   <option value="4" <% if(data.cardType==4){%>selected <%}%> >Kindle</option>
+                                   <option value="5" <% if(data.cardType==5){%>selected <%}%> >手机党</option>
+                                   <option value="6" <% if(data.cardType==6){%>selected <%}%> >你懂得</option>
+                                   <option value="7" <% if(data.cardType==7){%>selected <%}%> >逆天账号</option>
+                               </select>
+                           </div>
+                           <div class="form-group">
+                               <label>公众号二维码</label>
+                               <input class="form-control" id="cardCode" value="<%= data.cardCode?data.cardCode:'' %>" name="cardCode" placeholder="公众号二维码">
+                           </div>
+
+                           <div class="form-group">
+                               <div class="alert alert-danger">
+                                   您的浏览器不支持读取文件
+                               </div>
+                           </div>
+                          <!-- <div class="form-group">
+                               <label>请选择文件</label>
+                               <input type="file" class="form-control" id="file" accept="image/*" name="file" value="<%= data.cardCode?data.cardCode:'' %>">
+                           </div>-->
+
+                       </form>
+                   </div>
+                   <div class="panel-footer">
+                       <input type="submit" value="提交" class="btn btn-danger" >
+                   </div>
+               </div>
+
+           </div>
+           <div class="col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            公众号二维码预览,请拖拽图片
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="lead" id="result">
+                           <img src="<%= data.cardCode?data.cardCode:''%>" width="100%" height="100%">
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                      <a class="btn btn-success" id="exchange">
+                          预览
+                      </a>
+                    </div>
+
+                </div>
+           </div>
+       </div>
+
+   </div>
+   <script src="/public/scripts/jquery.min.js"></script>
+   <script type="text/javascript">
+       $(function(){
+           var code;
+           if(typeof FileReader =='undefined'){
+              $('.alert').css('display','block');
+           }
+          /* $("#exchange").click(function(){
+               readFile();
+           })*/
+
+            $("input[type='submit']").click(function(e){
+                e.preventDefault();
+                $('#cardCode').val($('img').attr('src'));
+
+
+                if(document.addform.cardName.value && document.addform.cardId.value && document.addform.cardDes.value&&document.addform.cardCode.value){
+                    $('form').submit();
+                }else{
+                    alert("表单不可为空");
+                    return;
+                }
+            })
+           function readFile(){
+               var file=document.getElementById('file').files[0];
+
+           }
+           /*拖拽*/
+
+       })
+
+   </script>
+   <script type="text/javascript">
+       (function(window,document,img){
+           var oDrapWrap=document.body;
+
+           var dragLeaveHander=function(ev){
+               ev.preventDefault();
+           }
+           //拖进
+           oDrapWrap.addEventListener('dragenter',function(e){
+
+               e.preventDefault();
+
+           },false);
+           //脱离
+           oDrapWrap.addEventListener('dragleave',dragLeaveHander,false);
+           //
+           oDrapWrap.addEventListener('dragover',function(e){
+               e.preventDefault();
+           },false);
+           //
+           oDrapWrap.addEventListener('drop',function(e){
+               dropHander(e);
+           },false);
+           var dropHander=function(ev){
+               ev.preventDefault();
+               var fileList=ev.dataTransfer.files,
+                       filenum=fileList.length;
+               if(filenum==0){
+                   return;
+               }
+               if(fileList[0].type.indexOf('image')===-1){
+                   return;
+               }
+               window.console.log(filenum);
+               var reader=new FileReader();
+               reader.readAsDataURL(fileList[0]);
+               reader.onload=function(e){
+                   var that=this;
+                   code=that.result;
+                   img.setAttribute('src',that.result);
+               }
+              /* if(window.URL.createObjectURL){
+                   img.setAttribute('src',window.URL.createObjectURL(fileList[0]))
+                   img.onload = function(e) {
+                       window.URL.revokeObjectURL(this.src);
+                   }
+               }else{
+                   if(window.webkitURL.createObjectURL){
+                       img.setAttribute('src',window.URL.createObjectURL(fileList[0]))
+                       img.onload = function(e) {
+                           window.webkitURL.revokeObjectURL(this.src);
+                       }
+                   }else{
+
+                   }
+               }*/
+
+           }
+           //防止默认操作
+
+
+
+
+       })(window,document,$('img')[0])
+   </script>
+</body>
+</html>

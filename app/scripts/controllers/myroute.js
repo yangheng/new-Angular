@@ -8,10 +8,17 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('MyrouteCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MyrouteCtrl',['$scope','$http','$interval','$timeout',function ($scope,$http,$interval,$timeout) {
+        $scope.localData={},
+        $scope.uri="/getData"+Math.random();
+        $scope.init=init;
+        $scope.SearchLoad=SearchLoad;
+
+        function SearchLoad(){
+            alert('serach');
+        }
+        function init(){
+            $http.post($scope.uri).success()
+        };
+
+}] );

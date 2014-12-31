@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-md-3 col-lg-3" ng-repeat="search in searchData">
+            <div class="thumbnail">
+                <div class="twoCode" ng-show="search.codeCtr||search.loading">
+                    <div class="spinner" ng-show="search.loading">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                    <div class="mask" ng-show="search.codeCtr">
+                        <a href="javascript:void(0)" ng-click="search.codeCtr=false;">X</a>
+                        <img ng-src="{{search.code}}">
+                    </div>
+                </div>
+                <img ng-src="{{search.pic}}" alt="{{search.title}}" style="height: 150px;width:100%">
+                <div class="caption">
+                    <h3 title="{{search.title}}">{{search.title}}</h3>
+                    <p>{{search.detail}}</p>
+                    <p><a href="javascript:void(0)" class="btn btn-primary" role="button" ng-click="getCode(search)">关注微信号</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

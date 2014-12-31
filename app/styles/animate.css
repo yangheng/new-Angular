@@ -1,0 +1,46 @@
+@-webkit-keyframes first {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+@-moz-keyframes first {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+@-o-keyframes first {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+@keyframes first {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0;
+  }
+}
+div.col-lg-2:hover > .pulc-laud {
+  animation: first 500ms ease-out 0;
+  -webkit-animation: first 500ms ease-out 0;
+  -moz-animation: first 500ms ease-out 0;
+  -o-animation: first 500ms ease-out 0;
+  top: 0;
+}
+/*.pulc-laud{
+  .animate(first,500ms,ease-in, 0)
+}
+.pulc-laud a.btn{
+  .animate(first,8s,ease-in,0)
+}*/
+/*# sourceMappingURL=animate.css.map */

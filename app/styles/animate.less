@@ -1,0 +1,39 @@
+
+.keyframe(@start,@end){
+  from {
+    top: @start;
+  }
+  to {
+    top: @end;
+
+  }
+}
+@-webkit-keyframes first{
+  .keyframe(100%,0);
+}
+@-moz-keyframes first{
+  .keyframe(100%,0);
+}
+@-o-keyframes first{
+  .keyframe(100%,0);
+}
+@keyframes first{
+  .keyframe(100%,0);
+}
+
+.animate(@style,@time,@style,@dely){
+  animation:@arguments;
+  -webkit-animation:@arguments;
+  -moz-animation:@arguments;
+  -o-animation:@arguments;
+}
+div.col-lg-2:hover >.pulc-laud{
+  .animate(first,500ms,ease-out, 0);
+  top:0;
+}
+/*.pulc-laud{
+  .animate(first,500ms,ease-in, 0)
+}
+.pulc-laud a.btn{
+  .animate(first,8s,ease-in,0)
+}*/

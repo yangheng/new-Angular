@@ -1,7 +1,23 @@
 {
   "name": "app",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "morgan": "^1.2.3",
+    "ejs": "^1.0.0",
+    "serve-favicon": "^2.0.1",
+    "errorhandler": "^1.1.1",
+    "method-override": "^2.1.3",
+    "body-parser": "^1.6.5",
+    "express-session": "^1.7.6",
+    "multer": "^0.1.4",
+    "cookie-parser": "^1.3.2",
+    "mongoose": "^3.8.15",
+    "serve-static": "^1.5.3",
+    "iconv-lite": "^0.4.5",
+    "urlencode": "^0.2.0",
+    "bufferhelper": "^0.2.0",
+    "cheerio": "^0.18.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^0.7.3",
@@ -29,7 +45,8 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma": "^0.12.21",
     "karma-jasmine": "^0.1.5",
-    "grunt-karma": "^0.8.3"
+    "grunt-karma": "^0.8.3",
+    "express": "4.8.5"
   },
   "engines": {
     "node": ">=0.10.0"

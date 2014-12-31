@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/public/style/bootstrap.min.css" />
+    <style type="text/css">
+        .alert{
+            display: none;
+        }
+        .list-group-item .btn{
+            margin-right: 10px;
+        }
+        .list-group-item .support{
+            font-weight: bold;
+            margin-right: 20%;
+        }
+        .form-inline .form-group{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <% include header.html %>
+    <div class="row">
+
+            <form class="form-inline" method="post" action="/admin/search">
+                <div class="form-group">
+                    <div class="input-group col-lg-12">
+                        <div class="input-group-addon ">公众号快速查询</div>
+                        <input class="form-control input-lg col-lg-6" type="text" name="cardName" placeholder="输入公众号">
+                    </div>
+                </div>
+            </form>
+        <p></p>
+        <div class="list-group">
+            <% cards.forEach(function(card,index){ %>
+            <div class="list-group-item">
+                <div class="clearfix">
+                    <button class="well-sm btn-info pull-left"><%= index%></button>
+                    <h4 class="text-success pull-left">
+                        <%= card.cardName%>
+                    </h4>
+                    <a href="/admin/delete?id=<%= card._id%>" class="btn btn-danger pull-right">删除</a>
+                    <a href="/admin/edit?id=<%= card._id%>" class="btn btn-info pull-right">编辑</a>
+                    <h4 class="pull-right support text-danger">支持数:  <span class="badge"><%= card.cardRate%></span> </h4>
+                </div>
+            </div>
+
+            <% }) %>
+
+        </div>
+    </div>
+    <div class="row text-center">
+        <ul class="pagination pagination-lg">
+            <li class="<% if(current==1){%>disabled<%}%>"><a href="/admin/?page=<%= current>1?current-1:current %>">&laquo;</a></li>
+            <% for( var i=1;i<count+1;i++){%>
+            <li class="<% if(i==current){%>active<%}%>"><a href="/admin/?page=<%= i%>" ><%= i %></a></li>
+           <% } %>
+            <li class="<% if(current>=count){%>disabled<%}%>"><a href="/admin/?page=<%= current+1%> ">&raquo;</a></li>
+        </ul>
+        </ul>
+    </div>
+
+
+</div>
+<script src="/public/scripts/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var code;
+        if(typeof FileReader =='undefined'){
+            $('.alert').css('display','block');
+        }
+        $("#exchange").click(function(){
+            readFile();
+        })
+
+        $("input[type='submit']").click(function(e){
+            e.preventDefault();
+            $('#cardCode').val(code);
+            if(document.addform.cardName.value && document.addform.cardId.value && document.addform.cardDes.value&&document.addform.file.value){
+                $('form').submit();
+            }else{
+                alert("表单不可为空");
+                return;
+            }
+        })
+        function readFile(){
+            var file=document.getElementById('file').files[0];
+            var reader=new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload=function(e){
+                var that=this;
+                code=that.result;
+                $('img').attr('src',that.result);
+            }
+        }
+    })
+</script>
+</body>
+</html>

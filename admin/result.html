@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %>结果</title>
+    <link rel="stylesheet" href="/public/style/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <% if(isErr){ %>
+        <div class="alert alert-danger">
+            <%= title %> 失败
+        </div>
+        <%} else{%>
+        <div class="alert alert-success">
+            <%= title %> 成功
+        </div>
+        <%} %>
+
+    </div>
+<script type="text/javascript">
+    (function(w){
+        w.setTimeout(function(){
+            w.location.href="/admin";
+        },2000)
+    })(window)
+</script>
+</body>
+</html>
