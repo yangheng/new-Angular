@@ -1,7 +1,84 @@
-<div ng-if="editors.length==0" ng-repeat="editor in editors">
+   <div class="row">
+       <div class="col-lg-5">
+           <div class="origin-editor"></div>
+           <div class="code-check"></div>
+       </div>
+       <div class="col-xs-2">
+           <select name="type" >
+               <opton value="">替换</opton>
+               <opton value="">向下替换</opton>
+               <opton value="">向上替换</opton>
+           </select>
+       </div>
+       <div class="col-lg-5">
+           <div class="content-edit">
+               <div class="wrap">
+                   <div class="module type-text" ng-click="cover">
+                       <ul class="tools">
+                           <li ng-click="up()">上移</li>
+                           <li ng-click="down()">下移</li>
+                           <li ng-click="remove()">删除</li>
+                       </ul>
+                       <div class="content">
+                           <div class="text-div">
+                               促销活动：凡是在本店新买家享有特殊优惠<br>纯天然黄山贡菊<br>黄山贡菊具有清肝明目、驱邪降火、清凉解表的功效。菊花茶对口干、火旺、目涩有作用，热饮后，全身发汗感到轻松，是医治感冒的良药，也是老少皆宜的保健饮料。<br>“黄山贡菊”具有疏风散热、养肝明目、清凉解毒之功能，可治伤风感冒、疔疮肿毒、血压偏高及动脉硬化等症。用它调配其它药物可以制成桑菊感冒片等成药和菊花晶等饮料。可以泡茶、泡酒，常饮可“清净五脏，排毒健身”，有排毒美容之功效。饮用过的菊花晒干后还可充作枕芯，使人清凉降火，明目醒脑。<br>菊花性味微寒，不可用量过大，脾胃虚弱的人不可久服
+                           </div>
+                       </div>
+                       <div class="cover"></div>
+                   </div>
+                   <div class="module type-text" ng-click="cover">
+                       <ul class="tools">
+                           <li ng-click="up()">上移</li>
+                           <li ng-click="down()">下移</li>
+                           <li ng-click="remove()">删除</li>
+                       </ul>
+                       <div class="content">
+                           <div class="image-div">
+                               <img src="" alt=""/>
+                           </div>
+                       </div>
+                       <div class="cover"></div>
+                   </div>
+                   <div class="module type-text" ng-click="cover">
+                       <ul class="tools">
+                           <li ng-click="up()">上移</li>
+                           <li ng-click="down()">下移</li>
+                           <li ng-click="remove()">删除</li>
+                       </ul>
+                       <div class="content">
+                           <div class="image-div">
+                               <img src="" alt=""/>
+                           </div>
+                       </div>
+                       <div class="cover"></div>
+                   </div>
+               </div>
+           </div>
+           <div class="edit-control">
+               <ul>
+                   <li ng-click="addType=0">单图</li>
+                   <li ng-click="addType=1">双图</li>
+                   <li ng-click="addType=2">文字</li>
+                   <li ng-click="addType=3">摘要</li>
+               </ul>
+               <div ng-if="addType==0">
+                   单图
+               </div>
+               <div ng-if="addType==1">
+                   双图
+               </div>
+               <div ng-if="addType==2">
+                   文字
+               </div>
+               <div ng-if="addType==3">
+                   摘要
+               </div>
+           </div>
+       </div>
+   </div>
 
-</div>
-<div>
-    <a class="btn btn-lg">添加替换代码</a>
-    <a class="btn btn-lg">整体详情内容</a>
-</div>
+
+
+
+
+

@@ -17,6 +17,12 @@ angular.module('appApp')
             var index = editors.indexOf(editor);
             editors.splice(index, 1);
         }
+        $scope.on('$destory',function(){
+
+        })
+        $scope.add=function(){
+
+        }
 }])
   .directive('ngMiniEditor', function () {
     return {
