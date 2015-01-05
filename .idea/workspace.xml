@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a80bf391-f3d1-49d1-915e-d8c720c25e93" name="Default" comment="添加了angualr-loader&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/editorset.html" afterPath="$PROJECT_DIR$/app/views/editorset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/myroute.html" afterPath="$PROJECT_DIR$/app/views/myroute.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/directives/ngminieditor.js" afterPath="$PROJECT_DIR$/app/scripts/directives/ngminieditor.js" />
-    </list>
+    <list default="true" id="a80bf391-f3d1-49d1-915e-d8c720c25e93" name="Default" comment="添加了angualr-loader&#10;" />
     <ignored path="new-Angular.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
