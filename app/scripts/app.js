@@ -30,7 +30,7 @@ angular
                 controller: 'SearchCtrl'
             })
             .when('/myRoute', {
-                templateUrl: 'views/myroute.html',
+                templateUrl: 'views/template.html',
                 controller: 'MyrouteCtrl'
             })
             .when('/my/route', {

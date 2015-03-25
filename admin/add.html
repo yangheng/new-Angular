@@ -190,27 +190,8 @@ if(data.cardType==7){s='逆天账号'}
                    code=that.result;
                    img.setAttribute('src',that.result);
                }
-              /* if(window.URL.createObjectURL){
-                   img.setAttribute('src',window.URL.createObjectURL(fileList[0]))
-                   img.onload = function(e) {
-                       window.URL.revokeObjectURL(this.src);
-                   }
-               }else{
-                   if(window.webkitURL.createObjectURL){
-                       img.setAttribute('src',window.URL.createObjectURL(fileList[0]))
-                       img.onload = function(e) {
-                           window.webkitURL.revokeObjectURL(this.src);
-                       }
-                   }else{
-
-                   }
-               }*/
 
            }
-           //防止默认操作
-
-
-
 
        })(window,document,$('img')[0])
    </script>
