@@ -1,38 +1,17 @@
 
-<div class="row-fluid main">
-    <div class="container" ng-init="init();">
-        <p></p>
-        <div class="row " ng-repeat="obj in data" ng-class="{'first':$index==0}">
-            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 text-center cate">
-                <h2>{{obj.typeName}}</h2>
-            </div>
-            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 content-wrapper" ng-repeat="card in obj.cards|filter:filterkey">
-               <div class="content">
-                   <div class="pulc-name">
-                       {{card.cardName}}
-                   </div>
-                   <div class="pulc-desc">
-                       {{card.cardDes}}
-                   </div>
-               </div>
+<div  ng-init="init();">
 
-                <div class="pulc-laud">
-                    <div class="row-fluid">
-                        <div class="col-lg-6 text-center">
-                            <a class="pulc-heart pulc-action" href="javascript:void(0)">365</a>
-                            <a class="btn btn-danger">赞一个</a>
-                        </div>
-                        <div class="col-lg-6 text-center">
-                            <a class="pulc-code pulc-action" href="javascript:void(0)"></a>
-                            <a class="btn btn-primary">二维码</a>
-
-                        </div>
-                    </div>
+        <div class="main clearfix">
+            <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="obj in data|filter:filterkey" >
+                <div class="text-center">
+                    <img src="{{obj.cardCode}}">
                 </div>
+                <p class="text-center name">{{obj.cardName}}</p>
+                <p class="describe">
+                    {{obj.cardDes}}
+                </p>
             </div>
-
         </div>
 
-    </div>
 </div>
 

@@ -78,6 +78,9 @@ var home = express.static(__dirname + '/app');
 
     })
     //后台首页
+    app.route('/').get(function(req,res){
+        res.redirect('/app');
+    })
     app.route('/admin').get(function(req,res){
         var page=req.query.page?req.query.page-1:0, p=cardModal.find().skip(page*10).limit(10).exec();
         var obj={};

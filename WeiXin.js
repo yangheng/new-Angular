@@ -59,7 +59,7 @@
 
     }
     WeiXin.getJson=function(callback){
-        var CardModel=db.mongo.model('CardModel',WeiXin.CardType),
+        var CardModel=db.mongo.model('cardmodals',WeiXin.CardSchema),
             pro=CardModel.find().exec();
         pro.then(function(doc){
            callback(undefined,doc);

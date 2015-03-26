@@ -13,9 +13,8 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animate.css">
-    <link rel="stylesheet" href="styles/editor.css">
+    <link rel="stylesheet" href="styles/base.css">
     <!-- endbuild -->
   </head>
   <body ng-app="appApp">
@@ -24,41 +23,26 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="row-fluid">
-        <div class="navbar navbar-default navbar-fixed-top">
-            <p></p>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 text-center">
-                        <a href="#/main" class=""><img class="" src="images/logo.png"></a>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="nav clearfix">
+                <div class="col-xs-12 col-sm-12 col-md-3 text-center">
+                    <a href="#/main" class=""><img class="" src="images/logo.png"></a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 text-center">
+                    <div class="input-group">
                         <input type="text" ng-model="filterkey" class="form-control input-lg">
-                    </div>
-                    <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4 text-center">
-                        <a class="btn btn-success btn-lg" ng-href="#/search/{{filterkey}}">
-                            站外搜索
-                        </a>
+                        <div class="input-group-btn">
+                            <a type="button" ng-href="#/search/{{filterkey}}" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-search"></i>搜全网</a>
+                        </div>
+
                     </div>
 
                 </div>
             </div>
 
+            <div ng-view class="view-frame "></div>
         </div>
-    </div>
-
-    <div class="container-fluid view-container">
-      <!--<div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-          <li><a ng-href="#/myRoute">逆天微信</a></li>
-        </ul>
-        <h3 class="text-muted">app</h3>
-      </div>-->
-
-      <div ng-view class="view-frame"></div>
 
     </div>
 
